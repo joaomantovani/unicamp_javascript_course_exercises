@@ -1,0 +1,54 @@
+<html>
+  <body>
+      <h1>Ex 2</h1>
+      <input type="text" id="name">
+      <button type="button" onclick="calc()">Calcular</button>
+      <script>
+          function calc() {
+              var str = document.getElementById("name").value;
+
+              var arr = [];
+              arr[1] = ['a','j','s'];
+              arr[2] = ['b','k','t'];
+              arr[3] = ['c','l','u'];
+              arr[4] = ['d','m','v'];
+              arr[5] = ['e','n','w'];
+              arr[6] = ['f','o','x'];
+              arr[7] = ['g','p','y'];
+              arr[8] = ['h','q','z'];
+              arr[9] = ['i','r'];
+
+              var arrResults = [];
+              arrResults[1] = ['Liderança, Pioneirismo, Iniciativa, Coragem, Independência.'];
+              arrResults[2] = ['Tato, Diplomacia, Paciência, Cooperação, Companheirismo.'];
+              arrResults[3] = ['Criatividade, Comunicação, Expressão, Entusiasmo, Sociabilidade.'];
+              arrResults[4] = ['Disciplina, Ordem, Estabilidade, Construção, Confiança, Honestidade.'];
+              arrResults[5] = ['Liberdade, Curiosidade, Flexibilidade, Versatilidade, Inteligência.'];
+              arrResults[6] = ['Amor, Beleza, Equilíbrio, Família, Saúde, Justiça.'];
+              arrResults[7] = ['Espiritualidade, Introspecção, Profundidade, Perfeccionismo, Controle da Mente.'];
+              arrResults[8] = ['Liderança, Poder, Organização, Perseverança, Auto-confiança.'];
+              arrResults[9] = ['Amor Universal, Solidariedade.'];
+
+              var chars = (str) => {
+                  return str = str.replace(' ', '').split('');
+              }
+
+              var sum = 0;
+              str = chars(str).forEach(function (strChar) {
+                  arr.forEach(function (item, index) {
+                      sum = item.includes(strChar) ? sum + index : sum;
+                  })
+              });
+
+              while(sum >= 10) {
+                sum = sum.toString().split('').reduce(function(total, num) {
+                      return parseInt(parseInt(total) + parseInt(num));
+                  });
+              }
+
+              alert(sum + ': ' + arrResults[sum]);
+          }
+          
+      </script>
+  </body>
+</html>

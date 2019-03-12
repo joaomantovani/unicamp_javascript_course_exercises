@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  </head>
+  <body>
+      <label>Frase</label>
+      <input onkeyup="doCrypto()" type="text" id="text" maxlength="30">
+      
+      <br><br>
+      
+      <label>Frase criptografada:</label>
+      <p id="result"></p> 
+      
+    <script>
+      function Cryptography(text, resultado = '') { 
+          this.text = text;
+          this.resultado = resultado;
+      };
+        
+      Cryptography.prototype.criptografar = function() {
+          this.resultado = window.btoa(this.text);
+      }
+      
+      function doCrypto() {
+          var crypt = new Cryptography(
+              document.getElementById("text").value,
+          );
+          
+          crypt.criptografar()
+         
+          document.getElementById("result").innerHTML = crypt.resultado;
+      }
+        
+    </script>
+  </body>
+</html>

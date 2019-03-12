@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  </head>
+  <body>
+      <label>Número 1</label>
+      <input type="text" id="numero1">
+      
+      <label>Número 2</label>
+      <input type="text" id="numero2">
+      
+      <br><br>
+      
+      <label>Operações</label>
+      <button onclick="doOperation('soma')"         type="button" id="soma">Soma</button>
+      <button onclick="doOperation('raizquadrada')" type="button" id="raizquadrada">Raiz</button>
+      <button onclick="doOperation('potenciacao')"  type="button" id="potenciacao">Potenciacao</button>
+      <button onclick="doOperation('faixanumeros')" type="button" id="faixanumeros">Random</button>
+      
+    <script>
+      function Matematica(numero1, numero2, resultado = 0) { 
+          this.numero1 = parseFloat(numero1);
+          this.numero2 = parseFloat(numero2);
+          this.resultado = resultado;
+      };
+        
+      Matematica.prototype.validacao = function(operation) {
+          try {
+              eval(operation)
+          } catch(e) {
+              alert("Erro: " + e);
+          } finally {
+              return eval(operation)
+          }
+      }
+      
+      Matematica.prototype.soma = function() {
+        this.resultado = this.validacao(
+            "this.numero1 + this.numero2"
+        );
+      }
+      
+      Matematica.prototype.raizquadrada = function() {
+        this.resultado = this.validacao(
+            "Math.sqrt(this.numero1)"
+        );
+      }
+      
+      Matematica.prototype.potenciacao = function() {
+        this.resultado = this.validacao(
+            "Math.pow(this.numero1)^this.numero2"
+        );
+      }
+      
+      Matematica.prototype.faixanumeros = function() {
+        this.resultado = this.validacao(
+            "Math.floor(Math.random()*this.numero2 + this.numero1)"
+        );
+      }
+      
+      function doOperation(operation) {
+          var objMatematica = new Matematica(
+              document.getElementById("numero1").value,
+              document.getElementById("numero2").value
+          );
+          
+          switch(operation) {
+              case 'soma': objMatematica.soma();
+              case 'raizquadrada': objMatematica.raizquadrada();
+              case 'potenciacao': objMatematica.potenciacao();
+              case 'faixanumeros': objMatematica.faixanumeros();
+          }
+         
+          alert(objMatematica.resultado);
+      }
+        
+    </script>
+  </body>
+</html>
