@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  </head>
+  <body>
+      <label id="label-nome">Nome:</label>
+      <input type="text">
+      <br><br>
+      
+      <label>Email:</label>
+      <input type="text">
+      <br><br>
+      
+      <label>Senha:</label>
+      <input type="password">
+      <br><br>
+      
+      <button type="button" class="button" onclick="modifyAll()">Estilizar formulário</button>
+      
+    <script>
+      function modifyAll() {
+          document.getElementById('label-nome').style = "font-weight: bold";
+          
+          var inputs = document.getElementsByTagName('INPUT');
+          for (var input of inputs) {
+              input.style = 'background-color: grey; padding: 10px 5px; border-radius: 10px; color: white';
+          }
+          
+          var buttons = document.getElementsByClassName('button');
+          for (var button of buttons) {
+              console.log(button);
+              button.style = 'background-color: blue; padding: 10px; border-radius: 10px; color: white';
+          }
+      }
+    </script>
+  </body>
+</html>
