@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+</head>
+<body>
+    <table id="table">
+        <thead id="header">
+            <tr class="header">
+                <td>DISCIPLINA</td>
+                <td>DIA DA SEMANA</td>
+                <td>HORARIO</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Logica</td>
+                <td>Segunda-feira</td>
+                <td>7:00 - 10:00</td>
+            </tr>
+            <tr>
+                <td>Matematica Aplicada</td>
+                <td>Segunda-feira</td>
+                <td>10:40 - 12:00</td>
+            </tr>
+            <tr>
+                <td>Ingles</td>
+                <td>Quarta-feita</td>
+                <td>8:20 - 10:00</td>
+            </tr>
+            <tr>
+                <td>Arduino</td>
+                <td>Quinta-feira</td>
+                <td>7:30 - 11:10</td>
+            </tr>
+            <tr>
+                <td>Gestao contabil</td>
+                <td>Sexta-feira</td>
+                <td>10:20</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button type="button" onclick="formatarTabela()">Formatar Tabela</button>
+    <button type="button" onclick="formatarCabecalho()">Formatar Cabecalho</button>
+    <button type="button" onclick="RemoverLinha()">Remove Linha</button>
+    <button type="button" onclick="InserirLinha()">Inserir Linha</button>
+
+<script>
+
+    function formatarTabela() {
+        document.getElementById("table").style = 'border: 1px solid black; margin-bottom: 16px';
+
+        var trs = document.getElementsByTagName("TR");
+
+        for (var tr of trs) {
+            if (tr.className !== 'header')
+                tr.style = 'margin: 20px; background-color: lightgray';
+        }
+    }
+
+    function formatarCabecalho() {
+        document.getElementById("header").style = "font-weight: bold; background-color: grey; color: white";
+    }
+
+    function RemoverLinha() {
+        var table = document.getElementById("table");
+        var row = table.deleteRow(table.rows.length -1);
+    }
+
+    function InserirLinha() {
+        var table = document.getElementById("table");
+        var row = table.insertRow(table.rows.length);
+
+        row.insertCell(0).innerHTML = 'Nome da disciplina';
+        row.insertCell(1).innerHTML = 'Dia da semana';
+        row.insertCell(2).innerHTML = 'Horario';
+    }
+
+
+
+
+</script>
+</body>
+</html>
