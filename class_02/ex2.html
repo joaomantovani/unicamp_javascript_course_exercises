@@ -26,48 +26,42 @@
   </head>
   <body>
       
-      <p class="visor" id="visor">0</p>
+      <p class="visor" id="visor"></p>
       
-      <button class="btn-operation" id="btn-raiz">Raiz</button>
-      <button class="btn-operation" id="btn-divisao">/</button>
-      <button class="btn-operation" id="btn-multiplicao">*</button>
-      <button class="btn-operation" id="btn-menos">-</button>
-      
-      <br>
-      
-      <button class="btn" id="btn7">7</button>
-      <button class="btn" id="btn8">8</button>
-      <button class="btn" id="btn9">9</button>
-      <button class="btn" id="btn-mais">+</button>
+      <button class="btn-operation" onclick="calcRaiz()" id="btn-raiz">Raiz</button>
+      <button class="btn-operation" onclick="addOperation('/')" id="btn-divisao">/</button>
+      <button class="btn-operation" onclick="addOperation('*')" id="btn-multiplicao">*</button>
+      <button class="btn-operation" onclick="addOperation('-')" id="btn-menos">-</button>
       
       <br>
       
-      <button class="btn" id="btn4">4</button>
-      <button class="btn" id="btn5">5</button>
-      <button class="btn" id="btn6">6</button>
-      <button class="btn-operation" id="btn-">^</button>
+      <button class="btn" onclick="addNumber(7)" id="btn7">7</button>
+      <button class="btn" onclick="addNumber(8)" id="btn8">8</button>
+      <button class="btn" onclick="addNumber(9)" id="btn9">9</button>
+      <button class="btn-operation" onclick="addOperation('+')" id="btn-mais">+</button>
       
       <br>
       
-      <button class="btn" id="btn1">1</button>
-      <button class="btn" id="btn2">2</button>
-      <button class="btn" id="btn3">3</button>
-      <button class="btn-operation" onclick="calcular()" id="btn-clear">C</button>
+      <button class="btn" onclick="addNumber(4)" id="btn4">4</button>
+      <button class="btn" onclick="addNumber(5)" id="btn5">5</button>
+      <button class="btn" onclick="addNumber(6)" id="btn6">6</button>
+      <button class="btn-operation" onclick="addOperation('^')" id="btn-">^</button>
+      
+      <br>
+      
+      <button class="btn" onclick="addNumber(1)" id="btn1">1</button>
+      <button class="btn" onclick="addNumber(2)" id="btn2">2</button>
+      <button class="btn" onclick="addNumber(3)" id="btn3">3</button>
+      <button class="btn-operation" onclick="clearVisor()" id="btn-clear">C</button>
       
       <br>
       
       <button class="btn-calc" onclick="calcular()" id="btn-calc">Calcular</button>
       
     <script>
-      
-      function Calculadora(visor = 0, resultado = 0) { 
-          this.visor = visor;
-          this.resultado = resultado;
-      };
-        
-      Calculadora.prototype.validacao = function(operation) {
+      function validacao(operation) {
           try {
-              eval(operation)
+              return eval(operation)
           } catch(e) {
               alert("Erro: " + e);
           } finally {
@@ -75,34 +69,27 @@
           }
       }
       
-      Calculadora.prototype.addBtnNumber = function() {
-        document.getElementById("visor").innerHTML = 20;
-      }
-      
-      Calculadora.prototype.raizquadrada = function() {
-        this.resultado = this.validacao(
-            "Math.sqrt(this.numero1)"
-        );
-      }
-      
-      Calculadora.prototype.potenciacao = function() {
-        this.resultado = this.validacao(
-            "Math.pow(this.numero1)^this.numero2"
-        );
-      }
-      
-      Calculadora.prototype.faixanumeros = function() {
-        this.resultado = this.validacao(
-            "Math.floor(Math.random()*this.numero2 + this.numero1)"
-        );
-      }
-      
       function calcular() {
-          var calculadora = new Calculadora(
-              document.getElementById("visor").innerHTML
-          );
-         
-          calculadora.addBtnNumber();
+          var result = validacao(document.getElementById("visor").innerHTML);
+          document.getElementById("visor").innerHTML = result;
+      }
+
+      function addNumber(number) {
+          document.getElementById("visor").innerHTML += number.toString();
+      }
+
+      function addOperation(operation) {
+          document.getElementById("visor").innerHTML += operation.toString();
+      }
+
+      function calcRaiz() {
+          var result = validacao(document.getElementById("visor").innerHTML);
+          document.getElementById("visor").innerHTML = Math.sqrt(result)
+      }
+
+      function clearVisor() {
+          this.resultado = 0;
+          document.getElementById("visor").innerHTML = '';
       }
         
     </script>
