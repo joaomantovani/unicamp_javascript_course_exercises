@@ -1,0 +1,22 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "type": "toys",
+            "name": "Brinquedos",
+            "image": "http://pro-promotions.com/gallery/image?view=image&format=raw&type=img&id=1421"
+        },
+        {
+            "id": 2,
+            "type": "home",
+            "name": "Casa",
+            "image": "https://media.architecturaldigest.com/photos/5b10481ca7a427430454e7e9/master/w_400,c_limit/4-Courtyard%20House%20on%20a%20River.jpg"
+        },
+        {
+            "id": 3,
+            "type": "eletronics",
+            "name": "Eletrônicos",
+            "image": "https://media.metrolatam.com/2018/09/12/bts123-d9814ebe84f52c2997a3fc48ed30530d-400x200.jpg"
+        }
+    ]
+}

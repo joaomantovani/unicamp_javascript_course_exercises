@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Start Bootstrap</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Título</h1>
+            </div>
+            
+            <div class="col-md-4">
+                <h3>Categorias</h3>
+                <span id="categories-list"></span>
+            </div>
+            <div class="col-md-4">
+                <h3>Lista de produtos</h3>
+                <ul id="products-list" class="list-group">
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h3>Detalhe do produto</h3>
+                <div id="product-detail" class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                  <div class="card-header">Detalhes do produto</div>
+                  <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <br><br><br>
+    
+    <div id="template" class="template" style="display: none">
+        
+        <div id="categorie-detail" class="card" style="width: 18rem; margin-bottom: 1em; cursor: pointer">
+            <img class="card-img-top categorie-img-detail" src="" alt="Card image cap">
+            <div class="card-body">
+            <p class="card-text categorie-description-detail">Some quick example text to build on the card title and make up     the bulk of the card's content.</p>
+            </div>
+        </div>
+        
+        <li class="list-group-item">
+            <button class="btn btn-primary btn-trigger-product-detail">
+                <span class="product-name"></span>
+            </button>
+        </li>
+        
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="ex.js"></script>
+</body>
+
+</html>
