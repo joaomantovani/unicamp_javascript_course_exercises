@@ -10,30 +10,27 @@ function Product(type, name, description) {
     this.description = description;
 }
 
+var httpUrl = 'http://localhost:63342/unicamp_javascript_course_exercises/class_03/';
+
 $(document).ready(function(){
-    // Creates the categories from JSON
-    var toys = new Category("toys", "Toys", "https://source.unsplash.com/collection/190727/100x100")
-    
-    // Creates the products from JSON
-  
     loadCategories();
 });
 
 function loadCategories() {
     $.ajax({
-        url: 'http://127.0.0.1/categories.json',
+        url: httpUrl + 'categories.json',
         dataType: 'json',
         success: function (data) {
-            data.data.forEach(function($obj) {    
-                var categorie_detail = $("#categorie-detail").clone();
+            data.data.forEach(function(obj) {
+                var category_detail = $("#categorie-detail").clone();
 
-                categorie_detail.find(".categorie-img-detail").attr("src", $obj.image);
+                category_detail.find(".categorie-img-detail").attr("src", obj.image);
 
-                categorie_detail.find(".categorie-description-detail").text($obj.name);
+                category_detail.find(".categorie-description-detail").text(obj.name);
                 
-                categorie_detail.attr("onClick", "loadProducts('"+$obj.type+"');");
+                category_detail.attr("onClick", "loadProducts('"+obj.type+"');");
 
-                $("#categories-list").append(categorie_detail)
+                $("#categories-list").append(category_detail)
             })
         },
     });
@@ -41,7 +38,7 @@ function loadCategories() {
 
 function loadProducts(type) {
     $.ajax({
-        url: 'http://127.0.0.1/products.json',
+        url: httpUrl + 'products.json',
         dataType: 'json',
         success: function (data) {
             
@@ -66,7 +63,7 @@ function loadProducts(type) {
 
 function loadProductDetail(id) {
     $.ajax({
-        url: 'http://127.0.0.1/products.json',
+        url: httpUrl + 'products.json',
         dataType: 'json',
         success: function (data) {
             data.data.forEach(function(obj) {
